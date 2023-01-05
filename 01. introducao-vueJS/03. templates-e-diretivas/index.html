@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./vue.js"></script>
+    <title>Vue.js</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{title}}</h1>
+      <!-- v-if: se bought for verdade ... -->
+      <div v-if="bought" v-bind:style="{background: cor}">
+        <p>{{content}}</p>
+        <p>Os lados são {{lado * lado/100}}</p>
+        <!-- É possivel usar ternários -->
+        <p>{{bought ? "Comprado":"Não Comprado"}}</p>
+        <!-- Linkado o valor de color ao cor, por padrão #fff -->
+        <input v-model="cor" type="color">
+        {{cor}}
+      </div>
+      <!-- v-bind ou tbm pode ser encurtado com :href="" -->
+      <a v-bind:href="bought ? href : ''">{{href}}</a>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          title: "Aprenda Vue.JS",
+          content: "Esse é o conteúdo",
+          lado: 5,
+          bought: true,
+          href: "https://github.com/Je-Carlos",
+          cor: "#fff"
+        },
+      });
+    </script>
+  </body>
+</html>
